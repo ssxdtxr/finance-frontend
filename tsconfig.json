@@ -25,7 +25,10 @@
       "@components/*": ["components/*"],
       "@assets/*": ["assets/*"],
       "@layouts/*": ["/layouts/*"],
-      "@pages/*": ["/pages/*"]
+      "@pages/*": ["/pages/*"],
+      "@types/*": ["/types/*"],
+      "@store/*": ["/store/*"],
+      "@hooks/*": ["/hooks/*"]
     }
   },
   "include": ["src", "typings.d.ts"],

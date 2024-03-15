@@ -6,7 +6,7 @@ const SideBar = () => {
   return (
     <aside className="bg-sidebar items-center flex flex-col gap-5 py-[29px]">
       {sideBarData.map(({ icon: Icon, route, title }) => (
-        <NavLink to={route}>
+        <NavLink to={route} key={route}>
           {({ isActive }) => (
             <div
               className={cn(
@@ -15,7 +15,6 @@ const SideBar = () => {
                   "bg-red-900  transition-all ": isActive,
                 }
               )}
-              key={route}
               title={title}
             >
               <Icon color="#fff" className="w-5 h-5" />
