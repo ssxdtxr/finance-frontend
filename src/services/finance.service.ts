@@ -1,20 +1,32 @@
 import { api } from "@/config/api";
 import { useActions } from "@/hooks/useActions";
-import { ITransaction } from "@/types/FinanceTypes/Transaction.interface";
 import { useQuery } from "react-query";
 
-const FinanceService = {
-  async fetchFinance() {
-    return await api.get<ITransaction[]>("/transaction");
+export const FinanceService = {
+  async fetchFinance(page?: number, limit?: number) {
+    return await api.get("/transaction", {
+      params: {
+        page,
+        limit,
+      },
+    });
   },
 };
 
-export const useFinance = () => {
-  const { setTransactions } = useActions();
+export const useFinance = (page?: number, limit?: number) => {
+  const { setTransactionsQuery } = useActions();
 
-  return useQuery(["fetchFinance"], () => FinanceService.fetchFinance(), {
-    onSuccess: (data) => {
-      setTransactions(data.data);
-    },
-  });
+  return useQuery(
+    ["fetchFinance", page, limit],
+    () => FinanceService.fetchFinance(page, limit),
+    {
+      cacheTime: 600000,
+      onSuccess: ({ data }) => {
+        setTransactionsQuery({
+          totalPages: data.totalPages,
+          transactionsQuery: data.transactions,
+        });
+      },
+    }
+  );
 };

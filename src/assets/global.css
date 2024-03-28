@@ -12,6 +12,10 @@ body {
   @apply text-white;
 }
 
+input {
+  @apply border-none outline-none;
+}
+
 .card {
-  @apply p-4 bg-card rounded-full;
+  @apply p-4 bg-cardSection rounded-full;
 }

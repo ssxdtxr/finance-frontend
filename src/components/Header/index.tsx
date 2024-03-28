@@ -9,7 +9,7 @@ export const Header = () => {
   const formattedDate = dayjs(new Date()).format("DD MMMM YYYY");
 
   return (
-    <div className="py-[29px] font-bold flex items-center justify-between border-b-[1px] border-[#3f4043] ">
+    <div className="py-[18px] font-bold flex items-center justify-between border-b-[1px] border-[#3f4043]">
       <h1>Welcome back, Liza 👋</h1>
       <ul className="flex items-center text-[16px] text-[#949597] gap-5">
         <li>

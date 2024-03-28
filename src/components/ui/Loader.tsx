@@ -9,18 +9,9 @@ export const Loader = () => {
         x="0px"
         y="0px"
         viewBox="0 0 100 100"
-        enable-background="new 0 0 100 100"
         xmlSpace="preserve"
       >
-        <rect
-          fill="none"
-          stroke="#fff"
-          stroke-width="4"
-          x="25"
-          y="25"
-          width="50"
-          height="50"
-        >
+        <rect fill="none" stroke="#fff" x="25" y="25" width="50" height="50">
           <animateTransform
             attributeName="transform"
             dur="0.5s"

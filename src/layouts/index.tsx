@@ -1,26 +1,26 @@
 import { Loader } from "@/components/ui/Loader";
-import Logo from "@assets/img/Logo.svg";
+// import Logo from "@assets/img/Logo.svg";
 import { Suspense } from "react";
 import SideBar from "./SideBar";
 
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Header } from "@/components/Header";
 
 export const Layout = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
-    <main className="grid grid-cols-[1fr_6fr_18fr] h-screen">
+    <main className="grid grid-cols-[1fr__24fr] h-screen">
       <SideBar />
       <Suspense fallback={<Loader />}>
-        <div className="bg-info">
+        {/* <div className="bg-info">
           <div className="cursor-pointer" onClick={() => navigate("/")}>
             <Logo />
           </div>
-        </div>
+        </div> */}
         <div className="bg-mainPart px-[32px] text-[20px]">
           <Header />
-          <div className="py-5">
+          <div className="relative">
             <Outlet />
           </div>
         </div>

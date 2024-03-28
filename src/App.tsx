@@ -1,6 +1,7 @@
 import "@assets/global.css";
 import { Layout } from "layouts";
 import { lazy } from "react";
+import { Toaster } from "react-hot-toast";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 const Costs = lazy(() => import("./pages/Costs/index"));
@@ -9,7 +10,14 @@ const Todo = lazy(() => import("./pages/Todo/index"));
 
 function App() {
   return (
-    <main>
+    <>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        toastOptions={{
+          duration: 3000,
+        }}
+      />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="costs" element={<Costs />} />
@@ -18,7 +26,7 @@ function App() {
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-    </main>
+    </>
   );
 }
 
